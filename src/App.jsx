@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { 
   Heart, ShieldCheck, MapPin, Smartphone, ArrowRight, CheckCircle2, 
   AlertTriangle, RefreshCw, Layers, DollarSign, Database, Activity, 
-  Clock, Video, Send, FileText, ChevronRight, X, UserCheck
+  Clock, Video, Send, FileText, ChevronRight, X, UserCheck, Sparkles, TrendingUp
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import ParticlesCanvas from './components/ParticlesCanvas';
+import OutcomeChart from './components/OutcomeChart';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('portal'); // 'portal' | 'caregiver' | 'whatsapp' | 'telehealth'
@@ -108,12 +110,18 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-4xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-xs text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-            Fund Care in USD / GBP ➔ Local Clinical Caregiver Paid in MXN / COP / EGP
+      {/* Hero Section with Casberry-style Particles Canvas */}
+      <section className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Interactive WebGL / Casberry Canvas Simulation */}
+        <ParticlesCanvas color="20, 184, 166" particleCount={50} connectionDistance={120} />
+
+        <div className="relative z-10 text-center max-w-4xl mx-auto space-y-5">
+          {/* Kokonut UI Shimmering Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-teal-500/40 text-xs text-slate-200 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+            <span className="font-semibold text-teal-300">Live Clinical Escrow Infrastructure</span>
+            <span className="text-slate-500">•</span>
+            <span>Fund Care in USD / GBP ➔ Local Clinical Caregiver Paid in MXN / COP / EGP</span>
           </div>
 
           {/* EXACT H1 TAG */}
@@ -121,21 +129,27 @@ export default function App() {
             Diaspora Elder-Care Management: Clinical Oversight & Peace of Mind for Parents Back Home
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl mx-auto">
             Stop worrying from 5,000 miles away. Fund vetted home nurses, verify geofenced clock-ins, monitor blood pressure & glucose trends, and receive automated daily WhatsApp clinical digests.
           </p>
+
+          {/* Larry Ellison Playbook: Confuse the Tenses & Sell Harder Than You Build */}
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-teal-950/40 border border-teal-500/30 text-xs text-teal-200">
+            <Sparkles className="w-4 h-4 text-teal-400 shrink-0" />
+            <span><strong className="text-white">Service-as-a-Software Clinical Escrow:</strong> Zero remittance leakage. Caregivers are paid strictly upon geofenced proof-of-visit.</span>
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button 
               onClick={() => setActiveTab('caregiver')}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-950 font-bold text-sm hover:from-teal-400 hover:to-emerald-300 transition shadow-xl shadow-teal-500/20 flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-950 font-bold text-sm hover:from-teal-400 hover:to-emerald-300 transition shadow-xl shadow-teal-500/25 flex items-center gap-2 group cursor-pointer"
             >
-              <Activity className="w-4 h-4" />
+              <Activity className="w-4 h-4 group-hover:scale-110 transition-transform" />
               Simulate Daily Nurse Visit & Vitals Check
             </button>
             <button 
               onClick={() => setActiveTab('whatsapp')}
-              className="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-slate-200 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2 cursor-pointer backdrop-blur-md"
             >
               <Send className="w-4 h-4 text-emerald-400" />
               Preview WhatsApp Daily Digest
@@ -143,24 +157,24 @@ export default function App() {
           </div>
 
           <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-left max-w-3xl mx-auto">
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-teal-500/30 transition">
               <span className="text-slate-400 block">Caregiver Vetting</span>
-              <span className="text-lg font-bold text-teal-400">100% Licensed</span>
+              <span className="text-xl font-bold text-teal-400">100% Licensed</span>
               <span className="text-[10px] text-slate-500 block">Criminal & Clinical Check</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-teal-500/30 transition">
               <span className="text-slate-400 block">Shift Verification</span>
-              <span className="text-lg font-bold text-white">GPS Geofence</span>
+              <span className="text-xl font-bold text-white">GPS Geofence</span>
               <span className="text-[10px] text-slate-500 block">Clock-In Proof at Home</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-teal-500/30 transition">
               <span className="text-slate-400 block">Family Communication</span>
-              <span className="text-lg font-bold text-emerald-400">WhatsApp Cloud</span>
+              <span className="text-xl font-bold text-emerald-400">WhatsApp Cloud</span>
               <span className="text-[10px] text-slate-500 block">Real-Time Daily Briefs</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-teal-500/30 transition">
               <span className="text-slate-400 block">Emergency Escalation</span>
-              <span className="text-lg font-bold text-teal-300">24/7 Physician</span>
+              <span className="text-xl font-bold text-teal-300">24/7 Physician</span>
               <span className="text-[10px] text-slate-500 block">On-Call Tele-Geriatrician</span>
             </div>
           </div>
@@ -169,6 +183,15 @@ export default function App() {
 
       {/* Main Workspaces */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        {/* Sequoia Framework Outcome Visualizer (Bklit UI + Julien Bek $1 vs $6 Ratio) */}
+        <div className="mb-12">
+          <OutcomeChart 
+            serviceName="Diaspora Parent Care Escrow & Daily Clinical Oversight"
+            defaultMonthlyStipend={700}
+            onCtaClick={() => setCabModalOpen(true)}
+          />
+        </div>
+
         {/* Navigation Tabs */}
         <div className="flex border-b border-slate-800 mb-8 overflow-x-auto">
           <button 
